@@ -350,8 +350,7 @@ export default {
       }
     }
   },
-  created() {
-    console.log(this)
+  created() { 
   },
   methods: {
     // 全屏 (点击按钮)
