@@ -63,7 +63,7 @@ isHideHeader | Boolean | false | 是否隐藏头部 |
 提供了三个可以插槽功能
 
 插槽名称 |描述
----|---|---
+---|---
 header | 头部插槽位置 页面头部中间部分 当hideAllBtn==true时，将会展示在右侧
 desc | 组件说明部分 和comDesc字段渲染在一个位置
 footer |  底部右下角说明部分 和其他的配置项目一起展示
