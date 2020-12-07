@@ -1,14 +1,14 @@
 {
   "name": "vue-fun-online",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于vue-fun-sfc 进行修改，扩展增加字段",
   "main": "index.js",
   "keywords": [
-     "vue-run",
-     "vue-run-sfc",
-     "vue-run-obline",
-     "codemirror",
-     "vue-codemirror"
+    "vue-run",
+    "vue-run-sfc",
+    "vue-run-obline",
+    "codemirror",
+    "vue-codemirror"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
