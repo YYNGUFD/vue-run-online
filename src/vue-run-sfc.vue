@@ -20,9 +20,14 @@
       @change-row="isRow = !isRow"
       @screenfull="handleScreenfull"
     >  
+   
     <!-- 中间内容部分插入 -->
     <slot name="header"></slot>
     </vue-run-sfc-header>
+    <!-- 内容描述部分 -->
+    <vue-run-online-desc v-if="$slots.desc || comDesc" :comDesc="comDesc">
+      <slot name="desc" ></slot>
+    </vue-run-online-desc>
     <!-- 中间主体区 -->
     <vue-run-sfc-main
       :is-row="isRow"
@@ -60,7 +65,6 @@
         />
       </template>
     </vue-run-sfc-main>
-
     <!-- 控制是否展开代码 -->
     <vue-run-sfc-control
       :is-screenfull="isScreenfull"
@@ -81,9 +85,10 @@
 import { codemirror,changeOptions } from "./codemirror";
 import VueRunSfcPreview from "./components/vue-run-sfc-preview";
 import VueRunSfcHeader from "./components/vue-run-sfc-header";
+import VueRunOnlineDesc from "./components/vue-run-online-desc";
 import VueRunSfcControl from "./components/vue-run-sfc-control";
 import VueRunSfcMain from "./components/vue-run-sfc-main";
-import cssVars from "css-vars-ponyfill";
+import cssVars from "css-vars-ponyfill"; 
 
 const { debounce } = require("throttle-debounce");
 const compiler = require("vue-template-compiler");
@@ -97,10 +102,12 @@ export default {
     VueRunSfcPreview,
     VueRunSfcControl,
     VueRunSfcMain,
-    codemirror
+    codemirror,
+    VueRunOnlineDesc
   },
   props: {
-    /**
+
+       /**
      * 代码
      * @example: '<template><div>123</div></template>'
      */
@@ -152,7 +159,7 @@ export default {
      */
     row: {
       type: Boolean,
-      default: undefined
+      default: false
     },
 
     /**
@@ -162,7 +169,7 @@ export default {
      */
     reverse: {
       type: Boolean,
-      default: undefined
+      default: true
     },
 
     /**
@@ -188,7 +195,7 @@ export default {
      */
     open: {
       type: Boolean,
-      default: undefined
+      default: false
     },
 
     /**
@@ -196,7 +203,7 @@ export default {
      */
     isHideHeader: {
       type: Boolean,
-      default: undefined
+      default: false
     },
 
     /**
@@ -223,6 +230,13 @@ export default {
         return [];
       }
     }, 
+    /**
+     * 组件说明，咋子组件头部下面
+     */
+    comDesc:{
+      type:String,
+      default:""
+    },
     /**
      * 下边配置
      */

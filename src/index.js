@@ -1,8 +1,9 @@
-import VueRunSfc from "./vue-run-sfc";
+ 
+import VueRunOnline from "./vue-run-sfc";
 
 const install = function(Vue, options = {}) {
-  Vue.component("vue-run-sfc", VueRunSfc);
-  Vue.prototype.$_vue_run_sfc = options;
+  Vue.component("vue-run-online", VueRunOnline);
+  Vue.prototype.$VueRunOnline= options;
 };
 
 if (typeof window !== "undefined" && window.Vue) {
@@ -13,4 +14,4 @@ export default {
   install
 };
 
-export { VueRunSfc };
+export { VueRunOnline };

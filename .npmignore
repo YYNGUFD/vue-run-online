@@ -1,0 +1,33 @@
+.DS_Store
+node_modules 
+/src
+/public
+babel.config.js
+/example
+
+
+
+# local env filess
+.env.local
+.env.*.local
+.browserslistrc               
+.editorconfig                 
+.eslintrc.js 
+
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.gitignore
+

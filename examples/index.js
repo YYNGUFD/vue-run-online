@@ -1,11 +1,19 @@
+/*
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2020-12-03 13:24:16
+ * @LastEditors: Mfy
+ * @LastEditTime: 2020-12-07 13:52:07
+ */
 
 import Vue from "vue";
 import App from "./App.vue";
-import VueRunSfc from "../src/index";
+import VueRunOnline from "../src/index";
 
 Vue.config.productionTip = false;
 
-Vue.use(VueRunSfc, {
+Vue.use(VueRunOnline, {
   cssLabs: "https://unpkg.com/normalize.css@8.0.1/normalize.css",
   row: false,
   reverse: true,

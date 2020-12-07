@@ -7,17 +7,20 @@
     <!-- 标题 -->
     <div class="vue-run-sfc-header-title">{{ title }}</div>
     <!-- 操作区 -->
-    <template v-if="hideAllButtons">
+     <template  class="vue-run-sfc-header-action" v-if="$slots.default"> 
+      <slot></slot>
+    </template>
+    <template v-if="!hideAllButtons">
       <div class="vue-run-sfc-header-action" v-if="isExpanded">
-        <button class="vue-run-sfc-header-button" @click="$emit('reset')">
+        <button class="vue-run-sfc-header-button" @click="$emit('reset')" v-if="hideButtonGroups.indexOf('reset')==-1">
           重置
         </button>
-        <button class="vue-run-sfc-header-button" @click="$emit('change-row')">
+        <button class="vue-run-sfc-header-button" @click="$emit('change-row')" v-if="hideButtonGroups.indexOf('layout')==-1">
           <span v-if="isRow">上下</span><span v-else>左右</span>布局
         </button>
         <button
           class="vue-run-sfc-header-button"
-          v-if="canScreenfull"
+          v-if="canScreenfull && hideButtonGroups.indexOf('full')==-1"
           @click="$emit('screenfull')"
         >
           <template v-if="isScreenfull">退出全屏</template>
@@ -25,9 +28,7 @@
         </button>
       </div>
     </template>
-    <template  class="vue-run-sfc-header-action" v-if="$slots.default"> 
-      <slot></slot>
-    </template>
+   
   </div>
 </template>
 
@@ -50,8 +51,7 @@ export default {
       default:()=>{
         return []
       }
-    }
-
+    } 
   },
   data() {
     return {
@@ -105,8 +105,8 @@ export default {
   transition: 0.1s;
   font-weight: 500;
   user-select: none;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 5px 10px;
+  font-size: 12px;
   border-radius: 4px;
   margin-right: 10px;
 }

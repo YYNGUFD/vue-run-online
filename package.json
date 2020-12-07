@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "基于vue-fun-sfc 进行修改，扩展增加字段",
   "main": "index.js",
+  "keywords": [
+     "vue-run",
+     "vue-run-sfc",
+     "vue-run-obline",
+     "codemirror",
+     "vue-codemirror"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "yarn build:lib && yarn build:docs",
-    "build:lib": "vue-cli-service build --target lib --name vue-run-sfc --dest ./dist/ ./src/index.js",
+    "build:lib": "vue-cli-service build --target lib --name vue-fun-online --dest ./dist/ ./src/index.js",
     "release": "standard-version",
     "pub": "npm run build:lib && npm run release &&  npm publish --registry http://registry.npmjs.org && git push --follow-tags origin master && gren release --override",
     "build:docs": "vue-cli-service build",

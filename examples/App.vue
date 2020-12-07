@@ -1,30 +1,31 @@
 
 <template>
-  <div> 
+  <div>
     <section class="main-content">
       <h2>可以编辑的代码区</h2>
-      <vue-run-sfc
+      <vue-run-online
         :js-labs="jsLabs"
         :css-labs="cssLabs"
         title="测试DEMO"
         :open="true"
         :code="code"
       >
-      <div slot='header'>我是标题呀</div>
-      <div slot="footer">我是底部的标签呀</div> 
-      </vue-run-sfc>
-       <h2>预览模式</h2>
-        <vue-run-sfc
+        <div slot="header">我是标题呀</div>
+        <div slot="footer">我是底部的标签呀</div>
+      </vue-run-online>
+      <h2>预览模式</h2>
+      <vue-run-online
+        :hideButtons="['reset']"
         :js-labs="jsLabs"
         :css-labs="cssLabs"
-        title="测试DEMO"
         :open="true"
-        :canEdit='false'
-        :code="code"
+        :canEdit="false"
+        :code="code3"
       >
-      <div slot='header'>我是标题呀</div>
-      <div slot="footer">我是底部的标签呀</div> 
-      </vue-run-sfc>
+        <div slot="header">我是标题呀</div>
+        <div slot="desc">我是组件说明嘻嘻</div>
+        <div slot="footer">我是底部的标签呀</div>
+      </vue-run-online>
       <h2>DEMO 源码</h2>
       <codemirror
         style="border-top: 1px solid #eee"
@@ -42,15 +43,20 @@ import exampleCode from "./example";
 export default {
   name: "App",
   components: {
-    codemirror
+    codemirror,
   },
   data() {
     return {
+      code3: `<template>
+  <div>
+   我是一个静态的可预览的文件呀
+  </div>
+</template>`,
       exampleCode: exampleCode,
       codemirrorOption: codemirrorOption,
       jsLabs: ["https://cdn.jsdelivr.net/npm/element-ui@2.12.0/lib/index.js"],
       cssLabs: [
-        "https://cdn.jsdelivr.net/npm/element-ui@2.12.0/lib/theme-chalk/index.css"
+        "https://cdn.jsdelivr.net/npm/element-ui@2.12.0/lib/theme-chalk/index.css",
       ],
       code: `<template>
   <div>
@@ -80,9 +86,9 @@ export default {
       color: #409EFF;
     }
   }
-</style>`
+</style>`,
     };
-  }
+  },
 };
 </script>
 
