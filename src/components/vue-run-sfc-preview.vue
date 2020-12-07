@@ -168,10 +168,10 @@ export default {
       let { styles = [], script = "", template, errors } = this.value;
       if (!this.hasDocument() || !template) return;
       const iframe = this.$refs.iframe;
-      const iframeDocument = iframe.contentWindow.document;
+      const iframeDocument = iframe.contentWindow.document; 
       iframe.contentWindow.Vue.options = merge(
-        Vue.options,
-        iframe.contentWindow.Vue.options
+        Vue.options ||{},
+        iframe.contentWindow.Vue.options ||{}
       );
       if (iframeDocument) {
         const elError = iframeDocument.getElementById("error");
