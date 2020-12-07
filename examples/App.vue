@@ -1,15 +1,8 @@
-<!--
- * @Descripttion: 
- * @version: 1.0.0
- * @Author: Mfy
- * @Date: 2020-12-03 13:24:34
- * @LastEditors: Mfy
- * @LastEditTime: 2020-12-05 20:26:05
--->
+
 <template>
   <div> 
     <section class="main-content">
-      <h2>DEMO</h2>
+      <h2>可以编辑的代码区</h2>
       <vue-run-sfc
         :js-labs="jsLabs"
         :css-labs="cssLabs"
@@ -18,8 +11,19 @@
         :code="code"
       >
       <div slot='header'>我是标题呀</div>
-      <div slot="footer">我是底部的标签呀</div>
-      
+      <div slot="footer">我是底部的标签呀</div> 
+      </vue-run-sfc>
+       <h2>预览模式</h2>
+        <vue-run-sfc
+        :js-labs="jsLabs"
+        :css-labs="cssLabs"
+        title="测试DEMO"
+        :open="true"
+        :canEdit='false'
+        :code="code"
+      >
+      <div slot='header'>我是标题呀</div>
+      <div slot="footer">我是底部的标签呀</div> 
       </vue-run-sfc>
       <h2>DEMO 源码</h2>
       <codemirror
@@ -51,7 +55,7 @@ export default {
       code: `<template>
   <div>
     <h1>{{title}}</h1>
-    <div><el-button type="primary" @click="handleClick">点一下, 玩一年</el-button></div>
+    <div><el-button type="primary" @click="handleClick">可以进行操作</el-button></div>
   </div>
 </template>
 
@@ -59,7 +63,7 @@ export default {
   export default {
     data() {
       return {
-        title: "宝刀屠龙"
+        title: "我是按钮"
       };
     },
     methods: {

@@ -10,6 +10,7 @@
     <vue-run-sfc-header
       :title="title"
       :is-row="isRow"
+      :canEdit="canEdit"
       v-if="!attrs.isHideHeader"
       :is-screenfull="isScreenfull"
       :is-expanded="isExpanded"
@@ -18,8 +19,7 @@
       @reset="handleReset"
       @change-row="isRow = !isRow"
       @screenfull="handleScreenfull"
-    > 
-    <div name="header">中间部分</div>
+    >  
     <!-- 中间内容部分插入 -->
     <slot name="header"></slot>
     </vue-run-sfc-header>

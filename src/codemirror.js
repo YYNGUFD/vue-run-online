@@ -4,7 +4,7 @@
  * @Author: Mfy
  * @Date: 2020-12-03 13:22:17
  * @LastEditors: Mfy
- * @LastEditTime: 2020-12-03 14:12:52
+ * @LastEditTime: 2020-12-07 10:58:14
  */
 import "codemirror/lib/codemirror.css";
 
@@ -70,7 +70,7 @@ export const codemirrorOption = {
 // 参数参考  https://blog.csdn.net/weixin_43080277/article/details/83860629 
 export const changeOptions=(type)=>{
   let options = Object.assign({},codemirrorOption);
-  if(type){
+  if(!type){
     options['lineNumbers'] = false;
     options['line'] =false;
     options['foldGutter'] = false;

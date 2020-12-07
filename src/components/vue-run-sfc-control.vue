@@ -16,13 +16,12 @@
     </transition>
     <transition name="text-slide">
       <span class="control-text" v-if="hovering">{{ controlText }}</span>
-    </transition>
-
-    <transition name="text-slide">
-      <span class="power-by-text" v-if="hideRight"> 
+    </transition>  
+     <transition name="text-slide">
+      <span class="power-by-text" v-if="!hideRight">  
         <slot v-if="$slots.default"></slot>
-        <a :href="rightLink" v-if="rightText">{{rightText}}</a>     
-      </span>
+         <a :href="rightLink" v-if="rightText">{{rightText}}</a>   
+      </span> 
     </transition>
   </div>
 </template>
@@ -33,6 +32,7 @@ const { throttle } = require("throttle-debounce");
 export default {
   name: "vue-run-sfc-control",
   props: {
+    canEdit:Boolean,
     isScreenfull: {
       type: Boolean,
       default: false
@@ -70,6 +70,9 @@ export default {
   computed: {
     // 控制区的文本
     controlText() {
+      if(!this.canEdit){
+        return this.isExpanded ? "关闭代码区" : "展开代码区";
+      }
       return this.isExpanded ? "关闭编辑器" : "在线编辑代码";
     }
   },
