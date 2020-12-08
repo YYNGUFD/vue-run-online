@@ -18,10 +18,10 @@
       <span class="control-text" v-if="hovering">{{ controlText }}</span>
     </transition>  
      <transition name="text-slide">
-      <span class="power-by-text" v-if="!hideRight">  
+      <div class="power-by-text" v-if="!hideRight">  
         <slot v-if="$slots.default"></slot>
          <a :href="rightLink" v-if="rightText">{{rightText}}</a>   
-      </span> 
+      </div> 
     </transition>
   </div>
 </template>

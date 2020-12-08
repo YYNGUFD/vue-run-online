@@ -9,6 +9,7 @@
         title="测试DEMO"
         :open="true"
         :code="code"
+        :isHideHeader='true'
       >
         <div slot="header">我是标题呀</div>
         <div slot="footer">我是底部的标签呀</div>

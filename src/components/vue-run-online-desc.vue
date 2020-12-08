@@ -4,7 +4,7 @@
  * @Author: Mfy
  * @Date: 2020-12-07 11:05:28
  * @LastEditors: Mfy
- * @LastEditTime: 2020-12-07 11:39:15
+ * @LastEditTime: 2020-12-07 15:57:29
 -->
 <template >
   <div class="vue-run-online-desc"> 
@@ -28,7 +28,7 @@ export default {
   border: 1px solid var(--vue-run-sfc-border, #ebeef5);
   border-top: 0px; 
   box-sizing: content-box; 
-  color: #999;
+  color: var(--vue-run-sfc-main, #ebeef5);
   font-size: 14px;
 }
 </style>

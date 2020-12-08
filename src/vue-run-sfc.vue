@@ -2,6 +2,7 @@
   <div
     ref="wrapper"
     class="vue-run-sfc"
+    :class="{'is-hide-headder':isHideHeader}"
     :style="{ 'overflow-y': isScreenfull ? 'auto' : null }"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false"
@@ -496,13 +497,15 @@ export default {
 .vue-run-sfc {
   box-sizing: border-box;
   background: white;
-  color: #303133;
+  color: #303133; 
 }
+.vue-run-sfc.is-hide-headder{
+    border-top: 1px solid var(--vue-run-sfc-border, #ebeef5);
+  }
 .vue-run-sfc:hover {
   box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
     0 2px 4px 0 rgba(232, 237, 250, 0.5);
 }
-
 /* 编辑器样式 */
 .vue-run-sfc-editor {
   width: 100%;
