@@ -2,7 +2,7 @@
 <template>
   <div>
     <section class="main-content">
-      <h2>可以编辑的代码区</h2>
+      <h2>可以编辑的代码区</h2> 
       <vue-run-online
         :js-labs="jsLabs"
         :css-labs="cssLabs"
@@ -27,6 +27,19 @@
         <div slot="desc">我是组件说明嘻嘻</div>
         <div slot="footer">我是底部的标签呀</div>
       </vue-run-online>
+
+  <vue-run-online
+        :hideButtons="['reset']"
+        :js-labs="jsLabs"
+        :css-labs="cssLabs"
+        :open="true"
+        :canEdit="false"
+        :code="code3"
+        :vueUrl="'https://cdn.jsdelivr.net/npm/vue@2.6.12'"
+      >
+      自定义的Vue的版本
+      </vue-run-online>
+      
       <h2>DEMO 源码</h2>
       <codemirror
         style="border-top: 1px solid #eee"
@@ -57,7 +70,7 @@ export default {
       codemirrorOption: codemirrorOption,
       jsLabs: ["https://cdn.jsdelivr.net/npm/element-ui@2.12.0/lib/index.js"],
       cssLabs: [
-        "https://cdn.jsdelivr.net/npm/element-ui@2.12.0/lib/theme-chalk/index.css",
+         "https://cdn.jsdelivr.net/npm/element-ui@2.12.0/lib/theme-chalk/index.css",
       ],
       code: `<template>
   <div>
@@ -75,7 +88,7 @@ export default {
     },
     methods: {
       handleClick () {
-        this.$message.success('装备不花一分钱')
+        this.$toast.success('装备不花一分钱')
       }
     }
   };

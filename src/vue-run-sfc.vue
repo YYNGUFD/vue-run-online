@@ -54,6 +54,7 @@
           :theme-color="attrs.themeColor"
           :css="attrs.css"
           :js="attrs.js"
+          :vueUrl="vueUrl"
           :style="{
             borderTop:
               !isRow && !attrs.reverse && isExpanded
@@ -107,8 +108,14 @@ export default {
     VueRunOnlineDesc
   },
   props: {
-
-       /**
+    /**
+     * 
+     */
+     vueUrl:{
+       type:String,
+       default:'',
+     },
+    /**
      * 代码
      * @example: '<template><div>123</div></template>'
      */

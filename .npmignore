@@ -4,6 +4,7 @@ node_modules
 /public
 babel.config.js
 /example
+/docs
 
 
 

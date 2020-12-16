@@ -28,6 +28,10 @@ export default {
     VueElementLoading
   },
   props: {
+    vueUrl:{
+      type:String,
+      default:''
+    },
     jsLabs: {
       type: Array,
       default: () => []
@@ -65,13 +69,14 @@ export default {
     );
     const js = Array.isArray(this.js) ? this.js : [this.js];
     const css = Array.isArray(this.css) ? this.css : [this.css];
+    const VueUrl = this.vueUrl || 'https://cdn.jsdelivr.net/npm/vue@2.6.11';
     const html = `
 <!DOCTYPE html>
   <html>
     <head>
       ${stylesTags.join("\n")}
       <style>${css.join("\n")}</style>
-      <script src='https://cdn.jsdelivr.net/npm/vue@2.6.11'><\/script>
+      <script src='${VueUrl}'><\/script>
       ${scriptTags.join("\n")}
       <script>${js.join("\n")}<\/script>
       <script>
@@ -169,10 +174,15 @@ export default {
       if (!this.hasDocument() || !template) return;
       const iframe = this.$refs.iframe;
       const iframeDocument = iframe.contentWindow.document; 
-      iframe.contentWindow.Vue.options = merge(
+      try{
+    iframe.contentWindow.Vue.options = merge(
         Vue.options ||{},
         iframe.contentWindow.Vue.options ||{}
       );
+      }catch(e){
+        console.log("配置不存在")
+      }
+     
       if (iframeDocument) {
         const elError = iframeDocument.getElementById("error");
         if (elError) {
@@ -195,7 +205,7 @@ export default {
           // 创建元素
           const elApp = iframeDocument.createElement("div");
           elApp.setAttribute("id", "app");
-          script = this.getScript(script, template);
+          script = this.getScript(script, template); 
 
           // 创建js
           const newScript = iframeDocument.createElement("script");

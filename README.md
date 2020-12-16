@@ -48,6 +48,7 @@ hideButtons|Array|[]|隐藏头部三个按钮组|['reset','full','layout']
 hideRight|Boolean ｜false ｜隐藏右下角内容配置
 rightLink|String|' '|右下角链接配置
 rightText|String|' '|右下角链接文字配置
+vueUrl|string|''|引入的Vue的版本,解决版本不同的问题 默认是https://cdn.jsdelivr.net/npm/vue@2.6.11
 js | Array｜String | ' ' | code执行所需要css
 css | Array｜String | ' ' | code执行所需要css 
 themeColor | String | '#409eff' | 代码演示主题效果颜色
